@@ -8,9 +8,9 @@ class App extends Component {
 
   state = {
     todolist:[
-      {id:0,todo:"Wash Towel"},
-      {id:1,todo:"Eat medicine"},
-      {id:2,todo:"Complete React Practice"},
+      {id:0,todo:"Play Sonic Dash"},
+      {id:1,todo:"Get Cheese Pizza"},
+      {id:2,todo:"Kick Mario's butt"},
     ],
     searchField:''
   }

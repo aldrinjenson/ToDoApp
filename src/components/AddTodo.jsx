@@ -30,7 +30,7 @@ class AddTodo extends Component {
                     <input value ={this.state.todo} onChange={this.handleChange} type="text" id="todo"/>
                     <label htmlFor="new">Enter New Todo</label>
                     <button type='submit' className="btn indigo center lighten-1">
-                        <span>Submit</span>
+                        <span>Add</span>
                         <i className="material-icons indigo-text text-darken-4 right">done</i>
                     </button>
                 </form>
