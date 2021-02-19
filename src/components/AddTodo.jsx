@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
-// // eslint-disable-next-line
-// import M from 'materialize-css'
 
 class AddTodo extends Component {
     state = {
-        todo:''
+        title: ''
     }
 
     handleChange = (e) => {
         this.setState({
-            [e.target.id]:e.target.value
+            [e.target.id]: e.target.value
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        if (this.state.todo!=='')
+        if (this.state.title !== '')
             this.props.addNew(this.state)
         this.setState({
-            todo:''
+            title: ''
         })
     }
 
@@ -27,7 +25,7 @@ class AddTodo extends Component {
             <div className='container'>
                 <h3 className="center-align">Add New Todo</h3>
                 <form onSubmit={this.handleSubmit} className="input-field">
-                    <input value ={this.state.todo} onChange={this.handleChange} type="text" id="todo"/>
+                    <input value={this.state.title} onChange={this.handleChange} type="text" id="title" />
                     <label htmlFor="new">Enter New Todo</label>
                     <button type='submit' className="btn indigo center lighten-1">
                         <span>Add</span>

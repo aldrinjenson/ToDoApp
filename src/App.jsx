@@ -3,55 +3,64 @@ import Todos from './components/Todos.jsx'
 import AddTodo from './components/AddTodo.jsx'
 import Search from './components/Search.jsx'
 import Navbar from './components/Navbar'
+import 'materialize-css/dist/css/materialize.min.css'
 
 class App extends Component {
 
   state = {
-    todolist:[
-      {id:0,todo:"Play Sonic Dash"},
-      {id:1,todo:"Get Cheese Pizza"},
-      {id:2,todo:"Kick Mario's butt"},
+    todoList: [
+      { id: 0, title: "Play Sonic Dash", completed: false },
+      { id: 1, title: "Get Cheese Pizza", completed: false },
+      { id: 2, title: "Kick Mario's butt", completed: false },
     ],
-    searchField:''
+    searchField: ''
   }
 
   addNew = (e) => {
     e.id = Math.random()
-    const newTodoArray = [...this.state.todolist,e]
+    const newTodoArray = [...this.state.todoList, e]
     this.setState({
-      todolist:newTodoArray
+      todoList: newTodoArray
     })
   }
 
-  deleteTodo = (id) =>{
-    const newList = this.state.todolist.filter(x=>{
+  deleteTodo = (id) => {
+    const newList = this.state.todoList.filter(x => {
       return x.id !== id
     })
     this.setState({
-      todolist:newList
+      todoList: newList
     })
   }
 
   Search = (letters) => {
     this.setState({
-      searchField:letters
+      searchField: letters
     })
   }
 
-  render(){
+  handleClick = id => {
+    const newList = this.state.todoList.map(todo => {
+      if (todo.id === id) return { ...todo, completed: !todo.completed }
+      else return todo
+    })
+    this.setState({ todoList: newList })
+  }
 
-    const todolist = this.state.todolist.filter(x=>{
-      return x.todo.toLowerCase().includes(this.state.searchField.toLowerCase())
+  render() {
+
+    const todoList = this.state.todoList.filter(todo => {
+      return todo.title.toLowerCase().includes(this.state.searchField.toLowerCase())
     })
 
-    return(
-      <div className='App'>
-        <Navbar/>
+    return (
+      <div className='App' style={{ marginBottom: '7vh' }} >
+        <Navbar />
         <div className="container">
           <h1 className='center'>TodoApp</h1>
-          <Search Search={this.Search}/>
-          <Todos list={todolist} deleteTodo={this.deleteTodo}/>      
-          <AddTodo addNew={this.addNew}/>
+          <Search Search={this.Search} />
+          <Todos todos={todoList} onClick={this.handleClick} deleteTodo={this.deleteTodo} />
+          <AddTodo addNew={this.addNew} />
         </div>
       </div>
     )
