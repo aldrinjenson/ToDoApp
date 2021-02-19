@@ -1,13 +1,13 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
 import M from 'materialize-css'
 
-class Navbar extends Component{
+class Navbar extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
         M.AutoInit()
     }
-    
-    render(){
+
+    render() {
         return (
             <nav className="nav-wrapper indigo">
                 <div className="container">
@@ -15,12 +15,12 @@ class Navbar extends Component{
                         <i className="material-icons">menu</i>
                     </a>
                     <a href="/" className="brand-logo">Todos</a>
-                    <ul className='right hide-on-med-and-down'>               
+                    <ul className='right hide-on-med-and-down'>
                         <li><a href="/">Home</a></li>
                         <li><a href="/">About</a></li>
                         <li><a href="/">Contacts</a></li>
                     </ul>
-                    <ul className='sidenav' id='mobile-view' >               
+                    <ul className='sidenav' id='mobile-view' >
                         <li><a href="/">Home</a></li>
                         <li><a href="/">About</a></li>
                         <li><a href="/">Contacts</a></li>
@@ -28,7 +28,7 @@ class Navbar extends Component{
                 </div>
             </nav>
         )
-    }    
+    }
 }
 
 export default Navbar

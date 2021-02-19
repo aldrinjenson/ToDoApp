@@ -5,7 +5,7 @@ const Todos = (props) => {
 
   return (
     <div>
-      <p>You have {count} todos</p>
+      <p> <span className='bold' style={{ fontWeight: 'bold' }} > You have {count} todos.</span> Click to toggle completion status</p>
       <ul className="collection">
         {props.todos.map((todo) => (
           <li
